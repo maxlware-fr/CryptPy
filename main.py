@@ -4,6 +4,7 @@ import time
 import sys
 from Crypto.Cipher import AES
 from Crypto.Random import get_random_bytes
+from colorama import Fore
 
 BS = 16
 
@@ -83,24 +84,24 @@ def decrypt_all(text, key):
     return step5
 
 def separator():
-    print("=" * 50)
+    print(Fore.BLACK + "=" * 50)
 
 def main():
     separator()
-    print(" CryptPy - Multi-layer encryption tool")
-    print(" By Maxlware")
+    print(Fore.LIGHTWHITE_EX + " CryptPy - Multi-layer encryption tool")
+    print(Fore.LIGHTBLUE_EX + " By Maxlware")
     separator()
-    print(" 1 - Encrypter un texte")
-    print(" 2 - Décrypter un texte")
+    print(Fore.LIGHTCYAN_EX + " 1 - Encrypter un texte")
+    print(Fore.LIGHTCYAN_EX + " 2 - Décrypter un texte")
     separator()
-    choice = input(" Choix (1/2) : ").strip()
+    choice = input(Fore.LIGHTCYAN_EX + " Choix (1/2) : ").strip()
     if choice == "1":
         text = input("\n Texte à chiffrer : ").strip()
         key = input(" Clé secrète (au choix) : ").strip()
         result = encrypt_all(text, key)
         separator()
-        print(" Texte chiffré :\n")
-        print(result)
+        print(Fore.LIGHTCYAN_EX + " Texte chiffré :\n")
+        print(Fore.LIGHTCYAN_EX + result)
         separator()
 
     elif choice == "2":
@@ -109,8 +110,8 @@ def main():
         try:
             result = decrypt_all(text, key)
             separator()
-            print(" Texte déchiffré :\n")
-            print(result)
+            print(Fore.LIGHTCYAN_EX + " Texte déchiffré :\n")
+            print(Fore.LIGHTCYAN_EX + result)
             separator()
         except Exception as e:
             print("\n [Erreur] Le déchiffrement a échoué :", e)
